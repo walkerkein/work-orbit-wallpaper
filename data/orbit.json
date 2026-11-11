@@ -1,7 +1,7 @@
 {
-  "updated": "2026-11-11T17:30:00+09:00",
+  "updated": "2026-11-11T18:20:00+09:00",
   "projects": [
-    {"name": "SCAN", "orbit": 0, "a0": 3.4, "open": 12},
+    {"name": "SCAN", "orbit": 0, "a0": 3.4, "open": 11},
     {"name": "The Scan", "orbit": 1, "a0": 0.5, "open": 13},
     {"name": "Work Orbit", "orbit": 1, "a0": 3.6, "open": 0},
     {"name": "New Ventures", "orbit": 2, "a0": 5.2, "open": 0},
@@ -9,5 +9,16 @@
     {"name": "OfficeClear", "orbit": 3, "a0": 4.3, "open": 0},
     {"name": "Senior Portal", "orbit": 3, "a0": 1.1, "open": 0}
   ],
-  "next": {"title": "첫 부가세 신고", "date": "2027-01-25"}
+  "briefing": [
+    "검수 대기 2건 · 언론사 이용 계약서 초안 외",
+    "진행 중 2건 · 할 일 20건 · 전체 완료 42/68",
+    "오늘 할 일 · 언론사 이용 계약서 검수 → 1인 미디어 제안서 발송"
+  ],
+  "log": [
+    {"date": "11.11", "text": "더 스캔 — 자동 발행 메인 배치·사진 출처·외신 수집 개선", "who": "Claude"},
+    {"date": "11.10", "text": "SCAN 언론사 이용 계약 구조 A안 확정", "who": "Claude"},
+    {"date": "11.10", "text": "언론사 홈페이지·CMS 포맷 상품화", "who": "Claude"},
+    {"date": "11.10", "text": "SCAN 업무 자동 진행·작업 일지 자동화", "who": "Claude"},
+    {"date": "11.10", "text": "[새 프로젝트] 더 스캔 홈페이지·CMS 구축", "who": "Claude"}
+  ]
 }

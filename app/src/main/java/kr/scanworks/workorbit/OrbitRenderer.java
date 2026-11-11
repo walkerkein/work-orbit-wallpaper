@@ -8,9 +8,6 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,13 +25,14 @@ final class OrbitRenderer {
     private static final int ORANGE = Color.rgb(255, 163, 107);
     private static final int HOT = Color.rgb(255, 122, 61);
     private static final int PALE = Color.rgb(255, 217, 192);
-    private static final DateTimeFormatter DATE_FMT = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+    private static final int GREY = Color.rgb(201, 205, 218);
 
     private final Paint stroke = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint fill = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint glow = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint mono = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint sans = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint body = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final RectF oval = new RectF();
 
     private static final class Body {
@@ -60,7 +58,7 @@ final class OrbitRenderer {
         // tall cover screen: same orbit size, larger text
         ut = (h > w * 1.6f) ? u * 1.4f : u;
         float cx = w / 2f;
-        float cy = h / 2f - 90f * u;
+        float cy = h / 2f - 130f * u;
         double t = nowMs / 1000.0;
 
         c.drawColor(Color.BLACK);
@@ -183,29 +181,73 @@ final class OrbitRenderer {
         c.drawText("WORK ORBIT", cx, cy - 175f * u, mono);
         mono.setLetterSpacing(0f);
 
-        if (data.nextTitle == null || data.nextTitle.isEmpty()) {
-            return;
-        }
-        float y0 = cy + 225f * u;
+        drawPanels(c, cx, cy, u, data);
+    }
+
+    /** Bottom area: today's briefing (status lines) and the recent project log. */
+    private void drawPanels(Canvas c, float cx, float cy, float u, OrbitData data) {
         float v = ut;
-        stroke.setColor(withAlpha(ORANGE, 90));
-        c.drawLine(cx - 150f * v, y0, cx - 70f * v, y0, stroke);
-        c.drawLine(cx + 70f * v, y0, cx + 150f * v, y0, stroke);
-        mono.setTextSize(12f * v);
-        mono.setColor(withAlpha(ORANGE, 170));
-        c.drawText("NEXT DEADLINE", cx, y0 + 4f * v, mono);
+        float colW = Math.min(c.getWidth() - 56f * u, 600f * v);
+        float left = cx - colW / 2f;
+        float y = cy + 150f * u;
 
-        sans.setTextSize(30f * v);
-        sans.setColor(PALE);
-        c.drawText(data.nextTitle, cx, y0 + 50f * v, sans);
-
-        if (data.nextDate != null) {
-            long days = ChronoUnit.DAYS.between(LocalDate.now(), data.nextDate);
-            String dday = days > 0 ? "D-" + days : (days == 0 ? "D-DAY" : "D+" + (-days));
-            mono.setTextSize(24f * v);
-            mono.setColor(ORANGE);
-            c.drawText(data.nextDate.format(DATE_FMT) + "  " + dday, cx, y0 + 92f * v, mono);
+        if (!data.briefing.isEmpty()) {
+            y = header(c, "TODAY'S BRIEFING", left, colW, y, v);
+            for (int i = 0; i < data.briefing.size() && i < 4; i++) {
+                mono.setTextAlign(Paint.Align.LEFT);
+                mono.setTextSize(12f * v);
+                mono.setColor(withAlpha(ORANGE, 170));
+                c.drawText("0" + (i + 1), left, y, mono);
+                body.setTextSize(15f * v);
+                body.setColor(PALE);
+                float tx = left + 30f * v;
+                c.drawText(fit(body, data.briefing.get(i), left + colW - tx), tx, y, body);
+                y += 26f * v;
+            }
+            y += 18f * v;
         }
+
+        if (!data.log.isEmpty()) {
+            y = header(c, "PROJECT LOG", left, colW, y, v);
+            for (int i = 0; i < data.log.size() && i < 5; i++) {
+                OrbitData.LogItem e = data.log.get(i);
+                mono.setTextSize(12f * v);
+                mono.setTextAlign(Paint.Align.LEFT);
+                mono.setColor(withAlpha(ORANGE, 160));
+                c.drawText(e.date, left, y, mono);
+                mono.setTextAlign(Paint.Align.RIGHT);
+                mono.setColor(withAlpha(ORANGE, e.who.equals("나") ? 120 : 200));
+                c.drawText(e.who, left + colW, y, mono);
+                float whoW = mono.measureText(e.who) + 12f * v;
+                body.setTextSize(14f * v);
+                body.setColor(GREY);
+                float tx = left + 52f * v;
+                c.drawText(fit(body, e.text, left + colW - whoW - tx), tx, y, body);
+                y += 25f * v;
+            }
+        }
+    }
+
+    private float header(Canvas c, String label, float left, float colW, float y, float v) {
+        mono.setTextAlign(Paint.Align.LEFT);
+        mono.setTextSize(11f * v);
+        mono.setLetterSpacing(0.25f);
+        mono.setColor(withAlpha(ORANGE, 180));
+        c.drawText(label, left, y, mono);
+        float end = left + mono.measureText(label) + 12f * v;
+        mono.setLetterSpacing(0f);
+        stroke.setColor(withAlpha(ORANGE, 70));
+        c.drawLine(end, y - 4f * v, left + colW, y - 4f * v, stroke);
+        return y + 30f * v;
+    }
+
+    private static String fit(Paint p, String s, float max) {
+        if (s == null) return "";
+        if (p.measureText(s) <= max) return s;
+        float room = max - p.measureText("…");
+        if (room <= 0) return "";
+        int n = p.breakText(s, true, room, null);
+        return s.substring(0, Math.max(0, n)) + "…";
     }
 
     private static int withAlpha(int color, int alpha) {

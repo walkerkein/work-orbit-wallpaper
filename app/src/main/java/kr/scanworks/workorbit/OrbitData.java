@@ -53,7 +53,21 @@ public final class OrbitData {
         }
     }
 
+    public static final class LogItem {
+        public final String date;
+        public final String text;
+        public final String who;
+
+        LogItem(String date, String text, String who) {
+            this.date = date;
+            this.text = text;
+            this.who = who;
+        }
+    }
+
     public final List<Planet> planets = new ArrayList<>();
+    public final List<String> briefing = new ArrayList<>();
+    public final List<LogItem> log = new ArrayList<>();
     public String nextTitle = "";
     public LocalDate nextDate = null;
     public String updated = "";
@@ -70,6 +84,20 @@ public final class OrbitData {
                     int orbit = Math.max(0, Math.min(3, p.optInt("orbit", 0)));
                     d.planets.add(new Planet(p.optString("name", "?"), orbit,
                             (float) p.optDouble("a0", i), p.optInt("open", 0)));
+                }
+            }
+            JSONArray br = o.optJSONArray("briefing");
+            if (br != null) {
+                for (int i = 0; i < br.length(); i++) {
+                    d.briefing.add(br.optString(i, ""));
+                }
+            }
+            JSONArray lg = o.optJSONArray("log");
+            if (lg != null) {
+                for (int i = 0; i < lg.length(); i++) {
+                    JSONObject e = lg.getJSONObject(i);
+                    d.log.add(new LogItem(e.optString("date", ""), e.optString("text", ""),
+                            e.optString("who", "")));
                 }
             }
             JSONObject next = o.optJSONObject("next");
