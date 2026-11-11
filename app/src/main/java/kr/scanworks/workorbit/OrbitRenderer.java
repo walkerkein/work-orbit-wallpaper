@@ -15,7 +15,6 @@ import java.util.List;
 /** Draws the Work Orbit star system. Layout is in a 720-unit design space scaled to the screen. */
 final class OrbitRenderer {
 
-    private static final float TILT = 0.30f;
     private static final float[] RADII = {95f, 165f, 235f, 300f};
     private static final float[] PLANET_R = {17f, 14f, 13f, 12f};
     private static final float[] PERIOD_S = {70f, 100f, 140f, 190f};
@@ -42,7 +41,9 @@ final class OrbitRenderer {
     }
 
     private final List<Body> bodies = new ArrayList<>();
-    private float ut = 1f;
+    private float ut = 1f;   // text scale
+    private float ou = 1f;   // orbit scale
+    private float tilt = 0.30f;
 
     OrbitRenderer() {
         stroke.setStyle(Paint.Style.STROKE);
@@ -55,10 +56,13 @@ final class OrbitRenderer {
 
     void draw(Canvas c, int w, int h, long nowMs, OrbitData data) {
         float u = Math.min(w, h) / 720f;
-        // tall cover screen: same orbit size, larger text
-        ut = (h > w * 1.6f) ? u * 1.4f : u;
+        // tall cover screen: larger, slightly cropped orbit, larger text, panels near the bottom
+        boolean tall = h > w * 1.6f;
+        ut = tall ? u * 1.4f : u;
+        ou = tall ? u * 1.45f : u;
+        tilt = tall ? 0.36f : 0.30f;
         float cx = w / 2f;
-        float cy = h / 2f - 130f * u;
+        float cy = tall ? h * 0.455f : h / 2f - 130f * u;
         double t = nowMs / 1000.0;
 
         c.drawColor(Color.BLACK);
@@ -68,7 +72,7 @@ final class OrbitRenderer {
         // back halves of orbit rings
         stroke.setColor(withAlpha(ORANGE, 55));
         for (float r : RADII) {
-            oval.set(cx - r * u, cy - r * TILT * u, cx + r * u, cy + r * TILT * u);
+            oval.set(cx - r * ou, cy - r * tilt * ou, cx + r * ou, cy + r * tilt * ou);
             c.drawArc(oval, 180f, 180f, false, stroke);
         }
 
@@ -81,10 +85,10 @@ final class OrbitRenderer {
             float depth = (float) Math.sin(th);
             Body b = new Body();
             b.depth = depth;
-            b.x = cx + (float) (r * Math.cos(th)) * u;
-            b.y = cy + r * TILT * depth * u;
+            b.x = cx + (float) (r * Math.cos(th)) * ou;
+            b.y = cy + r * tilt * depth * ou;
             float k = (depth + 1f) / 2f;
-            b.r = PLANET_R[p.orbit] * (0.82f + 0.22f * k) * u;
+            b.r = PLANET_R[p.orbit] * (0.82f + 0.22f * k) * ou;
             b.alpha = 0.55f + 0.45f * k;
             b.label = p.open > 0 ? p.name + " · " + p.open : p.name;
             b.index = i;
@@ -96,12 +100,12 @@ final class OrbitRenderer {
             if (b.depth < 0) drawPlanet(c, b, t, u);
         }
 
-        drawStar(c, cx, cy, t, u);
+        drawStar(c, cx, cy, t, ou);
 
         // front halves of rings
         stroke.setColor(withAlpha(ORANGE, 95));
         for (float r : RADII) {
-            oval.set(cx - r * u, cy - r * TILT * u, cx + r * u, cy + r * TILT * u);
+            oval.set(cx - r * ou, cy - r * tilt * ou, cx + r * ou, cy + r * tilt * ou);
             c.drawArc(oval, 0f, 180f, false, stroke);
         }
 
@@ -178,7 +182,8 @@ final class OrbitRenderer {
         mono.setTextSize(13f * ut);
         mono.setColor(withAlpha(ORANGE, 150));
         mono.setLetterSpacing(0.6f);
-        c.drawText("WORK ORBIT", cx, cy - 175f * u, mono);
+        float ty = ou > u ? cy - 300f * tilt * ou - 70f * u : cy - 175f * u;
+        c.drawText("WORK ORBIT", cx, ty, mono);
         mono.setLetterSpacing(0f);
 
         drawPanels(c, cx, cy, u, data);
@@ -190,6 +195,14 @@ final class OrbitRenderer {
         float colW = Math.min(c.getWidth() - 56f * u, 600f * v);
         float left = cx - colW / 2f;
         float y = cy + 150f * u;
+        if (ou > u) {
+            // tall screen: anchor the panels just above the lock-screen shortcuts
+            int nb = Math.min(4, data.briefing.size()), nl = Math.min(5, data.log.size());
+            float block = 0f;
+            if (nb > 0) block += 30f + nb * 26f + 18f;
+            if (nl > 0) block += 30f + nl * 25f;
+            y = Math.max(cy + 150f * u, c.getHeight() * 0.88f - block * v);
+        }
 
         if (!data.briefing.isEmpty()) {
             y = header(c, "TODAY'S BRIEFING", left, colW, y, v);
