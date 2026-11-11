@@ -1,0 +1,13 @@
+{
+  "updated": "2026-11-11T17:30:00+09:00",
+  "projects": [
+    {"name": "SCAN", "orbit": 0, "a0": 3.4, "open": 12},
+    {"name": "The Scan", "orbit": 1, "a0": 0.5, "open": 13},
+    {"name": "Work Orbit", "orbit": 1, "a0": 3.6, "open": 0},
+    {"name": "New Ventures", "orbit": 2, "a0": 5.2, "open": 0},
+    {"name": "The Pin", "orbit": 2, "a0": 2.0, "open": 0},
+    {"name": "OfficeClear", "orbit": 3, "a0": 4.3, "open": 0},
+    {"name": "Senior Portal", "orbit": 3, "a0": 1.1, "open": 0}
+  ],
+  "next": {"title": "첫 부가세 신고", "date": "2027-01-25"}
+}
