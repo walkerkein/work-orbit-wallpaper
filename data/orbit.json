@@ -1,26 +1,86 @@
 {
-  "updated": "2026-11-13T05:18:00+09:00",
+  "updated": "2026-11-13T14:30:00+09:00",
   "projects": [
-    {"name": "SCAN", "orbit": 0, "a0": 3.4, "open": 11},
-    {"name": "The Scan", "orbit": 1, "a0": 0.5, "open": 18},
-    {"name": "New Ventures", "orbit": 2, "a0": 5.2, "open": 0},
-    {"name": "The Pin", "orbit": 2, "a0": 2, "open": 0},
-    {"name": "OfficeClear", "orbit": 3, "a0": 4.3, "open": 0},
-    {"name": "Senior Portal", "orbit": 3, "a0": 1.1, "open": 0},
-    {"name": "Work Orbit", "orbit": 1, "a0": 3.6, "open": 0},
-    {"name": "Wedding Gift App", "orbit": 0, "a0": 0.3, "open": 0}
+    {
+      "name": "SCAN",
+      "orbit": 0,
+      "a0": 3.4,
+      "open": 11
+    },
+    {
+      "name": "The Scan",
+      "orbit": 1,
+      "a0": 0.5,
+      "open": 18
+    },
+    {
+      "name": "New Ventures",
+      "orbit": 2,
+      "a0": 5.2,
+      "open": 0
+    },
+    {
+      "name": "The Pin",
+      "orbit": 2,
+      "a0": 2,
+      "open": 0
+    },
+    {
+      "name": "OfficeClear",
+      "orbit": 3,
+      "a0": 4.3,
+      "open": 0
+    },
+    {
+      "name": "Senior Portal",
+      "orbit": 3,
+      "a0": 1.1,
+      "open": 0
+    },
+    {
+      "name": "Work Orbit",
+      "orbit": 1,
+      "a0": 3.6,
+      "open": 0
+    },
+    {
+      "name": "Wedding Gift App",
+      "orbit": 0,
+      "a0": 0.3,
+      "open": 0
+    }
   ],
   "briefing": [
     "최근 일지 11.13 · 더 스캔 — 외신 수집 창·영역별 수집기·자동 기사 개편·발행 등급 규칙·관리자 화면 개편",
     "진행 중 2건 · 할 일 30건 · 전체 완료 42/80",
-    "검수 대기 4건 · 더 스캔 관리자 화면 개편 때 함께: 외신 '자동 발행'·'발행 간격' 칸이 통합 대기열 뒤로 작동 안 함 → '자동 기사 설정'에 외신 자동 발행 스위치 추가, 외신 화면의 두 칸은 빼고 안내로 대체 외",
+    "검수 대기 4건 · 정치·사회 기사 법률 확인 메모 초기 점검 외",
     "다음 마감 D-73 · 첫 부가세 신고(2026년 2기)"
   ],
   "log": [
-    {"date": "11.13", "text": "더 스캔 — 외신 수집 창·영역별 수집기·자동 기사 개편·발행 등급 규칙·관리자 화면 개편", "who": "Claude"},
-    {"date": "11.12", "text": "더 스캔 — CMS 표 머리글 수정·이슈 섹션 1단계", "who": "Claude"},
-    {"date": "11.12", "text": "[새 프로젝트] 웨딩스캔 도우미 화면 시험", "who": "Claude"},
-    {"date": "11.12", "text": "1인 미디어 제안 이벤트 조건 확정", "who": "Claude"},
-    {"date": "11.11", "text": "Work Orbit 영문 표기·기록·폴드 배경화면", "who": "Claude"}
+    {
+      "date": "11.13",
+      "text": "더 스캔 — 외신 수집 창·영역별 수집기·자동 기사 개편·발행 등급 규칙·관리자 화면 개편",
+      "who": "Claude"
+    },
+    {
+      "date": "11.12",
+      "text": "1인 미디어 제안 이벤트 조건 확정",
+      "who": "Claude"
+    },
+    {
+      "date": "11.12",
+      "text": "[새 프로젝트] 웨딩스캔 도우미 화면 시험",
+      "who": "Claude"
+    },
+    {
+      "date": "11.12",
+      "text": "더 스캔 — CMS 표 머리글 수정·이슈 섹션 1단계",
+      "who": "Claude"
+    },
+    {
+      "date": "11.11",
+      "text": "Work Orbit 영문 표기·기록·폴드 배경화면",
+      "who": "Claude"
+    }
   ]
 }
