@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T01:53:00+09:00",
+  "updated": "2026-11-15T02:08:00+09:00",
   "projects": [
     {
       "name": "SCAN",
@@ -11,7 +11,25 @@
       "name": "The Radar",
       "orbit": 1,
       "a0": 0.5,
-      "open": 17
+      "open": 6
+    },
+    {
+      "name": "OfficeClear",
+      "orbit": 3,
+      "a0": 4.3,
+      "open": 5
+    },
+    {
+      "name": "Work Orbit",
+      "orbit": 1,
+      "a0": 3.6,
+      "open": 0
+    },
+    {
+      "name": "Wedding Gift App",
+      "orbit": 0,
+      "a0": 0.3,
+      "open": 0
     },
     {
       "name": "New Ventures",
@@ -26,33 +44,15 @@
       "open": 0
     },
     {
-      "name": "OfficeClear",
-      "orbit": 3,
-      "a0": 4.3,
-      "open": 1
-    },
-    {
       "name": "Senior Portal",
       "orbit": 3,
       "a0": 1.1,
-      "open": 0
-    },
-    {
-      "name": "Work Orbit",
-      "orbit": 1,
-      "a0": 3.6,
-      "open": 0
-    },
-    {
-      "name": "Wedding Gift App",
-      "orbit": 0,
-      "a0": 0.3,
       "open": 0
     }
   ],
   "briefing": [
     "최근 일지 11.14 · 회사 메일 Cloudflare 전환·주소 체계 정리",
-    "진행 중 3건 · 할 일 23건 · 전체 완료 58/87",
+    "진행 중 3건 · 할 일 16건 · 전체 완료 78/99",
     "검수 대기 1건 · 정치·사회 기사 법률 확인 메모 초기 점검",
     "다음 마감 D-DAY · 플레이 콘솔 조직 계정 가입 (11/15 15시 이후)"
   ],
@@ -74,12 +74,12 @@
     },
     {
       "date": "11.15",
-      "text": "외신 자동 기사에도 AI 메인 배치 반영 여부 결정 (72시간 제외 줄은 빼고) 완료",
-      "who": "나"
+      "text": "수집 소스 등록·첫 수집 실행 완료",
+      "who": "Claude"
     },
     {
       "date": "11.15",
-      "text": "발행 기사 관리 등급 선택 창 실기기 확인 완료",
+      "text": "외신 자동 기사에도 AI 메인 배치 반영 여부 결정 (72시간 제외 줄은 빼고) 완료",
       "who": "나"
     }
   ]
