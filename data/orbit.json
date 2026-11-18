@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18T15:24:00+09:00",
+  "updated": "2026-11-18T19:39:00+09:00",
   "projects": [
     {
       "name": "SCAN",
@@ -23,7 +23,7 @@
       "name": "Today's Diet",
       "orbit": 0,
       "a0": 1.6,
-      "open": 6
+      "open": 5
     },
     {
       "name": "Work Orbit",
