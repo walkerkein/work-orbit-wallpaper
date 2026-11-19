@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19T03:39:00+09:00",
+  "updated": "2026-11-19T20:45:00+09:00",
   "projects": [
     {
       "name": "SCAN",
@@ -8,16 +8,40 @@
       "open": 8
     },
     {
-      "name": "The Scan",
+      "name": "The Radar",
       "orbit": 1,
       "a0": 0.5,
-      "open": 0
+      "open": 3
     },
     {
-      "name": "AI Automation",
+      "name": "OfficeClear",
+      "orbit": 3,
+      "a0": 4.3,
+      "open": 1
+    },
+    {
+      "name": "Today's Diet",
+      "orbit": 0,
+      "a0": 1.6,
+      "open": 5
+    },
+    {
+      "name": "Work Orbit",
       "orbit": 1,
       "a0": 3.6,
       "open": 0
+    },
+    {
+      "name": "Wedding Scan",
+      "orbit": 0,
+      "a0": 0.3,
+      "open": 2
+    },
+    {
+      "name": "Sisa Eco ver.en",
+      "orbit": 2,
+      "a0": 3.6,
+      "open": 1
     },
     {
       "name": "New Ventures",
@@ -32,12 +56,6 @@
       "open": 0
     },
     {
-      "name": "OfficeClear",
-      "orbit": 3,
-      "a0": 4.3,
-      "open": 1
-    },
-    {
       "name": "Senior Portal",
       "orbit": 3,
       "a0": 1.1,
@@ -45,12 +63,17 @@
     }
   ],
   "briefing": [
-    "최근 일지 없음",
-    "진행 중 0건 · 할 일 0건 · 전체 완료 0/0",
-    "검수 대기 0건",
-    "다음 마감 없음"
+    "최근 일지 11.19 · 더레이더 — 번역 1차 보완수정",
+    "진행 중 6건 · 할 일 12건 · 전체 완료 159/187",
+    "검수 대기 4건 · 제안서·발표 자료 법인 정보 반영 외",
+    "다음 마감 D+2 · Claude 영상 제작 토큰 시험 (11/17 화 오전 8시)"
   ],
   "log": [
+    {
+      "date": "11.19",
+      "text": "번역 1차 보완수정 완료",
+      "who": "Claude"
+    },
     {
       "date": "11.19",
       "text": "음식 DB 보정·1인분 기준·사진 양 보정·상차림 질문 (0.4.4) 완료",
@@ -69,11 +92,6 @@
     {
       "date": "11.19",
       "text": "안드로이드 앱 패키징 + 결제 플러그인 + AI 양 g 표시 (0.5.1) 완료",
-      "who": "Claude"
-    },
-    {
-      "date": "11.19",
-      "text": "실기기 수정: 화면 가림 + 뒤로 가기 (0.5.2) 완료",
       "who": "Claude"
     }
   ]
