@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T03:31:00+09:00",
+  "updated": "2026-11-22T20:22:00+09:00",
   "projects": [
     {
       "name": "SCAN",
@@ -8,40 +8,16 @@
       "open": 8
     },
     {
-      "name": "The Radar",
+      "name": "The Scan",
       "orbit": 1,
       "a0": 0.5,
-      "open": 3
-    },
-    {
-      "name": "OfficeClear",
-      "orbit": 3,
-      "a0": 4.3,
-      "open": 1
-    },
-    {
-      "name": "Today's Diet",
-      "orbit": 0,
-      "a0": 1.6,
       "open": 0
     },
     {
-      "name": "Work Orbit",
+      "name": "AI Automation",
       "orbit": 1,
       "a0": 3.6,
       "open": 0
-    },
-    {
-      "name": "Wedding Scan",
-      "orbit": 0,
-      "a0": 0.3,
-      "open": 9
-    },
-    {
-      "name": "Sisa Eco ver.en",
-      "orbit": 2,
-      "a0": 3.6,
-      "open": 1
     },
     {
       "name": "New Ventures",
@@ -56,6 +32,12 @@
       "open": 0
     },
     {
+      "name": "OfficeClear",
+      "orbit": 3,
+      "a0": 4.3,
+      "open": 1
+    },
+    {
       "name": "Senior Portal",
       "orbit": 3,
       "a0": 1.1,
@@ -63,10 +45,10 @@
     }
   ],
   "briefing": [
-    "최근 일지 11.22 · 프로젝트 화면 '항목 추가' 버튼",
-    "진행 중 10건 · 할 일 10건 · 전체 완료 182/212",
-    "검수 대기 4건 · 제안서·발표 자료 법인 정보 반영 외",
-    "다음 마감 D+5 · Claude 영상 제작 토큰 시험 (11/17 화 오전 8시)"
+    "최근 일지 없음",
+    "진행 중 0건 · 할 일 0건 · 전체 완료 0/0",
+    "검수 대기 0건",
+    "다음 마감 없음"
   ],
   "log": [
     {
