@@ -62,7 +62,7 @@ final class OrbitRenderer {
         ou = tall ? u * 1.45f : u;
         tilt = tall ? 0.36f : 0.30f;
         float cx = w / 2f;
-        float cy = tall ? h * 0.455f : h / 2f - 130f * u;
+        float cy = tall ? h * 0.38f : h / 2f - 130f * u;
         double t = nowMs / 1000.0;
 
         c.drawColor(Color.BLACK);
@@ -90,7 +90,7 @@ final class OrbitRenderer {
             float k = (depth + 1f) / 2f;
             b.r = PLANET_R[p.orbit] * (0.82f + 0.22f * k) * ou;
             b.alpha = 0.55f + 0.45f * k;
-            b.label = p.open > 0 ? p.name + " · " + p.open : p.name;
+            b.label = p.name;
             b.index = i;
             bodies.add(b);
         }
@@ -201,7 +201,7 @@ final class OrbitRenderer {
             float block = 0f;
             if (nb > 0) block += 30f + nb * 26f + 18f;
             if (nl > 0) block += 30f + nl * 25f;
-            y = Math.max(cy + 150f * u, c.getHeight() * 0.88f - block * v);
+            y = Math.max(cy + 150f * u, c.getHeight() * 0.76f - block * v);
         }
 
         if (!data.briefing.isEmpty()) {
