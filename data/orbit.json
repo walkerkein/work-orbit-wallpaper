@@ -1,23 +1,11 @@
 {
-  "updated": "2026-11-26T00:12:00+09:00",
+  "updated": "2026-11-26T00:22:00+09:00",
   "projects": [
-    {
-      "name": "SCAN",
-      "orbit": 0,
-      "a0": 3.4,
-      "open": 8
-    },
-    {
-      "name": "The Radar",
-      "orbit": 1,
-      "a0": 0.5,
-      "open": 3
-    },
     {
       "name": "OfficeClear",
       "orbit": 3,
       "a0": 4.3,
-      "open": 0
+      "open": 1
     },
     {
       "name": "Today's Diet",
@@ -26,21 +14,39 @@
       "open": 1
     },
     {
-      "name": "Work Orbit",
-      "orbit": 1,
-      "a0": 3.6,
-      "open": 0
-    },
-    {
       "name": "Wedding Scan",
       "orbit": 0,
       "a0": 0.3,
       "open": 4
     },
     {
-      "name": "Sisa Eco ver.en",
+      "name": "100owl",
       "orbit": 2,
       "a0": 3.6,
+      "open": 0
+    },
+    {
+      "name": "The Radar",
+      "orbit": 1,
+      "a0": 0.5,
+      "open": 3
+    },
+    {
+      "name": "SCAN",
+      "orbit": 0,
+      "a0": 3.4,
+      "open": 8
+    },
+    {
+      "name": "Work Orbit",
+      "orbit": 1,
+      "a0": 3.6,
+      "open": 0
+    },
+    {
+      "name": "Sisa Eco ver.en",
+      "orbit": 3,
+      "a0": 2.7,
       "open": 0
     },
     {
@@ -50,27 +56,21 @@
       "open": 2
     },
     {
-      "name": "The Pin",
-      "orbit": 2,
-      "a0": 2,
-      "open": 0
-    },
-    {
       "name": "Senior Portal",
       "orbit": 3,
       "a0": 1.1,
       "open": 0
     },
     {
-      "name": "100owl",
-      "orbit": 3,
-      "a0": 2.7,
+      "name": "The Pin",
+      "orbit": 2,
+      "a0": 2,
       "open": 0
     }
   ],
   "briefing": [
     "최근 일지 11.25 · 오피스클리어 구글 플레이 출시·iOS 검토",
-    "진행 중 5건 · 할 일 9건 · 전체 완료 206/233",
+    "진행 중 6건 · 할 일 9건 · 전체 완료 206/234",
     "검수 대기 6건 · 제안서·발표 자료 법인 정보 반영 외",
     "다음 마감 D-4 · 부모님 자서전(AI 전화 인터뷰 → 책 제작) 심층기획안 작성"
   ],
