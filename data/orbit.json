@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T00:12:00+09:00",
+  "updated": "2026-11-27T04:57:00+09:00",
   "projects": [
     {
       "name": "OfficeClear",
@@ -17,7 +17,7 @@
       "name": "Wedding Scan",
       "orbit": 0,
       "a0": 0.3,
-      "open": 5
+      "open": 6
     },
     {
       "name": "100owl",
